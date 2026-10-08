@@ -1,0 +1,129 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>কোমর ও পায়ের মাপ গাইড</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--fg:#12232e;--cd:#fff;--mu:#5b6b76;--ok:#1f9d6b;--bb:#f2b01e;--ln:#cfd8dd;--ac:#12232e;--ai:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e171d;--fg:#e8eff3;--cd:#16242d;--mu:#92a4af;--ln:#2b3d48;--ac:#e8eff3;--ai:#0e171d}}
+:root[data-theme=dark]{--bg:#0e171d;--fg:#e8eff3;--cd:#16242d;--mu:#92a4af;--ln:#2b3d48;--ac:#e8eff3;--ai:#0e171d}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0 auto;max-width:540px;padding:14px;background:var(--bg);color:var(--fg);font:16px/1.55 "Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif}
+h1{font-size:22px;margin:4px 0}h2{font-size:17px;margin:14px 0 6px}p,li{margin:4px 0}.m{color:var(--mu);font-size:14px}
+.tabs{display:flex;gap:6px;margin:10px 0}.tabs button{flex:1}
+button{font:inherit;padding:10px 12px;border-radius:10px;border:1.5px solid var(--ln);background:var(--cd);color:var(--fg)}
+button.on,button.p{background:var(--ac);color:var(--ai);border-color:var(--ac)}button:disabled{opacity:.45}
+.cd{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:12px;margin:10px 0}
+.vial{position:relative;height:34px;border-radius:17px;border:2px solid var(--fg);background:var(--cd);overflow:hidden;margin:8px 0 2px}
+.vial:before{content:"";position:absolute;left:calc(50% - 22px);width:44px;top:0;bottom:0;border:solid var(--mu);border-width:0 2px;opacity:.6}
+.vial i{position:absolute;top:5px;width:44px;height:20px;border-radius:10px;background:var(--bb);left:calc(50% - 22px);transition:left .12s}
+.vial.ok i{background:var(--ok)}
+#st{font-weight:600}
+.vb{position:relative;background:#000;border-radius:12px;overflow:hidden;aspect-ratio:3/4}
+.vb video,.vb canvas{width:100%;height:100%;object-fit:cover;display:block}
+.vb .g{position:absolute;pointer-events:none;border-color:rgba(255,255,255,.75);border-style:dashed;border-width:0}
+.row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.row>*{flex:1}
+input{font:inherit;width:100%;padding:8px;border-radius:8px;border:1.5px solid var(--ln);background:var(--cd);color:var(--fg)}
+.big{font-size:40px;font-weight:600;line-height:1.1}
+textarea{width:100%;min-height:110px;font:inherit;font-size:14px;border-radius:10px;border:1.5px solid var(--ln);background:var(--cd);color:var(--fg);padding:8px}
+.hid{display:none}
+</style></head><body>
+<h1>কোমর ও পায়ের মাপ গাইড</h1>
+<p class="m">এটা আনুমানিক মাপ, রোগ নির্ণয় নয়। ফলাফল ডাক্তারকে দেখান।</p>
+<div class="tabs"><button class="on" data-t="a">ছবি</button><button data-t="b">ব্লক টেস্ট</button><button data-t="c">ফিতা</button></div>
+<div id="vw" class="cd"><button id="sb" class="p" style="width:100%">ফোনের সেন্সর চালু করুন</button>
+<div class="vial" id="vl"><i id="bub"></i></div><div id="st" class="m">সেন্সর বন্ধ</div></div>
+
+<section id="a">
+<div class="cd"><b>কীভাবে:</b>
+<ol><li>সাহায্যকারী আপনার পেছন থেকে ফোন বুকের উচ্চতায় সোজা ধরবে।</li>
+<li>খালি পায়ে, পা কাঁধ-সমান ফাঁকে, হাঁটু সোজা করে দাঁড়ান। কোমরের কাপড় পাতলা রাখুন।</li>
+<li>বুদবুদ সবুজ হলে ছবি তুলুন।</li>
+<li>ছবিতে ক্রমানুসারে ট্যাপ করুন: কোমরের বাম হাড়, ডান হাড়, বাম কাঁধ, ডান কাঁধ।</li></ol></div>
+<div class="vb" id="vb"><video id="vd" autoplay playsinline muted></video><canvas id="cv" class="hid"></canvas>
+<div class="g" style="left:50%;top:0;bottom:0;border-left-width:2px"></div>
+<div class="g" style="top:55%;left:0;right:0;border-top-width:2px"></div></div>
+<p id="pp" class="m">ক্যামেরা চালু করুন।</p>
+<div class="row"><button id="cb" class="p">ক্যামেরা চালু</button><button id="fl">পাল্টান</button><button id="sh" disabled>ছবি তুলুন</button><button id="rs" disabled>আবার</button></div>
+</section>
+
+<section id="b" class="hid">
+<div class="cd"><b>কীভাবে:</b>
+<ol><li>সাহায্যকারী ফোন সোজা পিঠে ধরবে, লম্বা ধার আড়াআড়ি, কোমরের দুই হাড়ের ওপর।</li>
+<li>সংখ্যা দেখুন। নিচু দিকের পায়ের নিচে পাতলা পাত (৩ মিমি করে) দিন।</li>
+<li>সংখ্যা কমলে ঠিক দিকে আছেন, বাড়লে উল্টো পায়ে দিন।</li>
+<li>সবচেয়ে কম সংখ্যায় পাতের মোট পুরুত্ব লিখে রাখুন।</li></ol></div>
+<div class="cd"><div class="big"><span id="dg">--</span>°</div>
+<div class="m">আনুমানিক ফারাক: <b id="mm">--</b> মিমি (দুই পায়ের দূরত্ব ধরে)</div>
+<div class="row"><label>পায়ের দূরত্ব (সেমি)<input id="w" type="number" value="20"></label>
+<label>পাতের পুরুত্ব (মিমি)<input id="bk" type="number" step="1" placeholder="0"></label></div>
+<button id="rb" style="width:100%">এই মাপ রেখে দিন</button></div>
+</section>
+
+<section id="c" class="hid">
+<div class="cd"><b>ফিতা দিয়ে (সাহায্যকারী লাগবে):</b>
+<ol><li>চিত হয়ে শুয়ে পা সোজা ও দুই পা সমান ফাঁকে রাখুন, কোমর বাঁকা না করে।</li>
+<li>কোমরের সামনের উঁচু হাড় (ASIS) চিনে নিন, যেখানে পেটের কাপড় আটকায়।</li>
+<li>সেখান থেকে পায়ের ভেতরের গোড়ালির হাড়ের ডগা পর্যন্ত ফিতা সোজা টানুন।</li>
+<li>প্রতি পায়ে ৩ বার মাপুন, সেমিতে লিখুন।</li></ol></div>
+<div class="cd"><div class="row"><b>বাম পা</b><b>ডান পা</b></div>
+<div class="row"><input class="t l" type="number" step=".1"><input class="t r" type="number" step=".1"></div>
+<div class="row"><input class="t l" type="number" step=".1"><input class="t r" type="number" step=".1"></div>
+<div class="row"><input class="t l" type="number" step=".1"><input class="t r" type="number" step=".1"></div>
+<button id="tc" class="p" style="width:100%">হিসাব করুন</button><p id="to"></p></div>
+</section>
+
+<h2>ডাক্তারকে দেখানোর সারাংশ</h2>
+<textarea id="sm" readonly placeholder="মাপ নিলে এখানে জমা হবে"></textarea>
+<div class="row"><button id="cp">কপি করুন</button></div>
+
+<script>
+const $=i=>document.getElementById(i),D=Math.PI/180,R={a:'',b:'',c:''};
+let ax=0,ay=0,az=0,has=0,tab='a',sm=0,lock=0;
+function show(){$('sm').value=Object.values(R).filter(Boolean).join('\n')}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+ tab=b.dataset.t;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x==b));
+ ['a','b','c'].forEach(k=>$(k).classList.toggle('hid',k!=tab));$('vw').classList.toggle('hid',tab=='c')});
+$('sb').onclick=async()=>{try{if(window.DeviceMotionEvent&&DeviceMotionEvent.requestPermission){if(await DeviceMotionEvent.requestPermission()!='granted'){$('st').textContent='অনুমতি দেওয়া হয়নি';return}}}catch(e){}
+ addEventListener('devicemotion',e=>{const a=e.accelerationIncludingGravity;if(a&&a.x!=null){ax=a.x;ay=a.y;az=a.z;has=1}});
+ $('sb').classList.add('hid');setTimeout(()=>{if(!has)$('st').textContent='এই ডিভাইসে সেন্সর পাওয়া যায়নি'},1500)};
+function lean(){// returns signed degrees of tilt for current tab, plus forward lean
+ if(tab=='a')return{d:Math.atan2(ax,Math.abs(ay))/D,f:Math.atan2(az,Math.hypot(ax,ay))/D};
+ return{d:Math.atan2(ay,Math.abs(ax))/D,f:Math.atan2(az,Math.hypot(ax,ay))/D}}
+setInterval(()=>{if(!has||tab=='c')return;const o=lean();sm=sm*.7+o.d*.3;
+ const ok=Math.abs(sm)<1.5&&Math.abs(o.f)<4;
+ $('bub').style.left='calc(50% - 22px + '+Math.max(-40,Math.min(40,sm*6))+'%)';
+ $('vl').classList.toggle('ok',ok);
+ $('st').textContent=tab=='a'?(ok?'ঠিক আছে: ফোন সোজা, ছবি তুলুন':'ফোন '+Math.abs(sm).toFixed(1)+'° হেলে আছে, সোজা করুন'):(ok?'ফোন এখন সমতল: কোমর সমান':'কোমরের ফারাক '+Math.abs(sm).toFixed(1)+'°');
+ lock=ok;if(tab=='a')$('sh').disabled=!(stream&&ok&&!snap);
+ if(tab=='b'){const a=Math.abs(sm);$('dg').textContent=a.toFixed(1);$('mm').textContent=(+$('w').value*10*Math.tan(a*D)).toFixed(0)}},150);
+$('rb').onclick=()=>{R.b='ব্লক টেস্ট: কোমরের হেলান '+$('dg').textContent+'°, আনুমানিক '+$('mm').textContent+' মিমি; পাতের পুরুত্ব '+($('bk').value||0)+' মিমি।';show()};
+// camera
+let stream,face='environment',snap=null,pts=[];const vd=$('vd'),cv=$('cv'),cx=cv.getContext('2d');
+const L=['কোমরের বাম হাড়','কোমরের ডান হাড়','বাম কাঁধ','ডান কাঁধ'];
+async function cam(){try{if(stream)stream.getTracks().forEach(t=>t.stop());
+ stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:face},audio:false});vd.srcObject=stream;
+ $('pp').textContent='ফোন সোজা করে মাঝের রেখায় শরীর রাখুন।'}
+ catch(e){$('pp').textContent='ক্যামেরা চালু হয়নি। ব্রাউজারে ক্যামেরার অনুমতি দিন বা লিংকটি সরাসরি ব্রাউজারে খুলুন।'}}
+$('cb').onclick=cam;$('fl').onclick=()=>{face=face=='user'?'environment':'user';cam()};
+$('sh').onclick=()=>{cv.width=vd.videoWidth;cv.height=vd.videoHeight;cx.drawImage(vd,0,0);
+ snap=document.createElement('canvas');snap.width=cv.width;snap.height=cv.height;snap.getContext('2d').drawImage(cv,0,0);
+ pts=[];vd.classList.add('hid');cv.classList.remove('hid');$('rs').disabled=0;$('sh').disabled=1;nx()};
+$('rs').onclick=()=>{snap=null;pts=[];cv.classList.add('hid');vd.classList.remove('hid');$('rs').disabled=1;$('pp').textContent='আবার ছবি তুলুন।'};
+function nx(){$('pp').textContent=pts.length<4?'ট্যাপ করুন: '+L[pts.length]:'মাপ হয়ে গেছে।'}
+function ang(p,q){let a=Math.abs(Math.atan2(q[1]-p[1],q[0]-p[0])/D);return a>90?180-a:a}
+cv.onclick=e=>{if(!snap||pts.length>=4)return;const r=cv.getBoundingClientRect(),s=Math.max(r.width/cv.width,r.height/cv.height);
+ const x=(e.clientX-r.left-(r.width-cv.width*s)/2)/s,y=(e.clientY-r.top-(r.height-cv.height*s)/2)/s;pts.push([x,y]);
+ cx.drawImage(snap,0,0);cx.lineWidth=5;[[0,1,'#22d3ee'],[2,3,'#f2b01e']].forEach(([i,j,c])=>{cx.strokeStyle=cx.fillStyle=c;
+  [i,j].forEach(k=>{if(pts[k]){cx.beginPath();cx.arc(pts[k][0],pts[k][1],9,0,7);cx.fill()}});
+  if(pts[j]){cx.beginPath();cx.moveTo(...pts[i]);cx.lineTo(...pts[j]);cx.stroke()}});nx();
+ if(pts.length==4){const h=ang(pts[0],pts[1]),s2=ang(pts[2],pts[3]);
+  R.a='ছবি থেকে: কোমরের রেখা '+h.toFixed(1)+'° হেলানো, কাঁধের রেখা '+s2.toFixed(1)+'° হেলানো (আনুমানিক ফারাক কোমরে '+(200*Math.tan(h*D)).toFixed(0)+' মিমি, ২০ সেমি দূরত্বে)।';
+  $('pp').textContent=R.a;show()}};
+// tape
+$('tc').onclick=()=>{const m=c=>{const v=[...document.querySelectorAll('.t.'+c)].map(i=>parseFloat(i.value)).filter(x=>!isNaN(x));return v.length?v.reduce((a,b)=>a+b)/v.length:NaN};
+ const l=m('l'),r=m('r');if(isNaN(l)||isNaN(r)){$('to').textContent='দুই পায়ের অন্তত একটি করে মাপ দিন।';return}
+ const d=Math.abs(l-r)*10,s=l<r?'বাম':'ডান';
+ $('to').textContent=d<5?'ফারাক প্রায় '+d.toFixed(0)+' মিমি, যা মাপার ভুলের সীমার মধ্যেও পড়তে পারে।':s+' পা প্রায় '+d.toFixed(0)+' মিমি ছোট দেখাচ্ছে। ডাক্তারকে দেখান।';
+ R.c='ফিতা: বাম গড় '+l.toFixed(1)+' সেমি, ডান গড় '+r.toFixed(1)+' সেমি, ফারাক '+d.toFixed(0)+' মিমি।';show()};
+$('cp').onclick=async()=>{try{await navigator.clipboard.writeText($('sm').value)}catch(e){$('sm').select();document.execCommand('copy')}$('cp').textContent='কপি হয়েছে'};
+</script></body></html>
